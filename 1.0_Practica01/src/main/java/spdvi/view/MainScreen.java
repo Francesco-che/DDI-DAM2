@@ -4,12 +4,14 @@
  */
 package spdvi.view;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author frand
  */
 public class MainScreen extends javax.swing.JFrame {
-    
+    private JTable taulaLloguers;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainScreen.class.getName());
 
     /**
@@ -28,17 +30,81 @@ public class MainScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableLloguers = new javax.swing.JTable();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuLloguer = new javax.swing.JMenu();
+        jMenuItemRegistrarLloguer = new javax.swing.JMenuItem();
+        jMenuItemTornarLloguer = new javax.swing.JMenuItem();
+        menuUsuari = new javax.swing.JMenu();
+        jMenuItemCrearUsuari = new javax.swing.JMenuItem();
+        jMenuItemBorrarUsuari = new javax.swing.JMenuItem();
+        menuJoc = new javax.swing.JMenu();
+        jMenuItemCrearJoc = new javax.swing.JMenuItem();
+        jMenuItemBorrarJoc = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTableLloguers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableLloguers);
+
+        menuLloguer.setText("Lloguer");
+
+        jMenuItemRegistrarLloguer.setText("Registrar...");
+        menuLloguer.add(jMenuItemRegistrarLloguer);
+
+        jMenuItemTornarLloguer.setText("Tornar...");
+        menuLloguer.add(jMenuItemTornarLloguer);
+
+        jMenuBar1.add(menuLloguer);
+
+        menuUsuari.setText("Usuari");
+
+        jMenuItemCrearUsuari.setText("Crear...");
+        menuUsuari.add(jMenuItemCrearUsuari);
+
+        jMenuItemBorrarUsuari.setText("Borrar...");
+        menuUsuari.add(jMenuItemBorrarUsuari);
+
+        jMenuBar1.add(menuUsuari);
+
+        menuJoc.setText("Joc");
+
+        jMenuItemCrearJoc.setText("Crear...");
+        menuJoc.add(jMenuItemCrearJoc);
+
+        jMenuItemBorrarJoc.setText("Borrar...");
+        menuJoc.add(jMenuItemBorrarJoc);
+
+        jMenuBar1.add(menuJoc);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -70,5 +136,17 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemBorrarJoc;
+    private javax.swing.JMenuItem jMenuItemBorrarUsuari;
+    private javax.swing.JMenuItem jMenuItemCrearJoc;
+    private javax.swing.JMenuItem jMenuItemCrearUsuari;
+    private javax.swing.JMenuItem jMenuItemRegistrarLloguer;
+    private javax.swing.JMenuItem jMenuItemTornarLloguer;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableLloguers;
+    private javax.swing.JMenu menuJoc;
+    private javax.swing.JMenu menuLloguer;
+    private javax.swing.JMenu menuUsuari;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,13 +21,11 @@ public class DataStore {
     public static List<Lloguer> lloguers = new ArrayList<>();
 
     public static void inicialitzarDades() {
-        // Dos usuaris diferents[cite: 3]
         Usuari u1 = new Usuari("Laura", "García", "Pérez", "11111111A", "600000000", LocalDate.now());
         Usuari u2 = new Usuari("Marc", "López", "Gómez", "22222222B", "611111111", LocalDate.now());
         usuaris.add(u1);
         usuaris.add(u2);
 
-        // Joc 1 (PS5 i Switch 2) i Joc 2 (Xbox i PC)[cite: 3]
         Joc j1 = new Joc("The Legend of Zelda", "Aventura", 5, 5, 0, 0); 
         Joc j2 = new Joc("Cyberpunk 2077", "Acció", 0, 0, 5, 5); 
         jocs.add(j1);
