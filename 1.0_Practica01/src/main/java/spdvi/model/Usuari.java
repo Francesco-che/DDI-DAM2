@@ -72,6 +72,11 @@ public class Usuari {
     public void setDataRegistre(LocalDate dataRegistre) {
         this.dataRegistre = dataRegistre;
     }
+
+    @Override
+    public String toString() {
+        return "Usuari{" + "nom=" + nom + ", cognom1=" + cognom1 + ", cognom2=" + cognom2 + ", dni=" + dni + ", telefon=" + telefon + ", dataRegistre=" + dataRegistre + '}';
+    }
     
     
     
