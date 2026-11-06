@@ -34,27 +34,37 @@ public class LloguerDialog extends javax.swing.JDialog {
         jLabelNumRegistre = new javax.swing.JLabel();
         jLabelUsuari = new javax.swing.JLabel();
         jComboBoxUsuari = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonSeleccionarUsuari = new javax.swing.JButton();
+        jButtonSeleccionarJoc = new javax.swing.JButton();
         jLabelJocElegit = new javax.swing.JLabel();
         jComboBoxJocElegit = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelDataInici = new javax.swing.JLabel();
+        jLabelDataTornada = new javax.swing.JLabel();
         jTextFieldDataInici = new javax.swing.JTextField();
         jTextFieldDataTornada = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
+        jPanelPlataforma = new javax.swing.JPanel();
         jRadioButtonPC = new javax.swing.JRadioButton();
         jRadioButtonPs5 = new javax.swing.JRadioButton();
         jRadioButtonXbox = new javax.swing.JRadioButton();
         jRadioButtonSwitch2 = new javax.swing.JRadioButton();
         jLabelPCQuantitat = new javax.swing.JLabel();
         jLabelPs5Quantitat = new javax.swing.JLabel();
-        jLabelXboxQuantitat2 = new javax.swing.JLabel();
-        jLabelSwitch2Quantitat3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelXboxQuantitat = new javax.swing.JLabel();
+        jLabelSwitch2Quantitat = new javax.swing.JLabel();
+        jPanelJoc = new javax.swing.JPanel();
+        jLabelGenere = new javax.swing.JLabel();
+        jLabelNumGenere = new javax.swing.JLabel();
+        jLabelUnitatsDisponibles = new javax.swing.JLabel();
+        jLabelUnidadPS5 = new javax.swing.JLabel();
+        jLabelUnidadXbox = new javax.swing.JLabel();
+        jLabelUnidadPC = new javax.swing.JLabel();
+        jLabelUnidadSwitch2 = new javax.swing.JLabel();
+        jLabelCantitatPS5 = new javax.swing.JLabel();
+        jLabelCantitatXbox = new javax.swing.JLabel();
+        jLabelCantitatPC = new javax.swing.JLabel();
+        jLabelCantitatSwitch2 = new javax.swing.JLabel();
+        jButtonLloguerCancelar = new javax.swing.JButton();
+        jButtonLloguerConfirmar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,15 +76,16 @@ public class LloguerDialog extends javax.swing.JDialog {
 
         jLabelUsuari.setText("Usuari: ");
 
-        jButton1.setText("Seleccionar...");
+        jButtonSeleccionarUsuari.setText("Seleccionar...");
+        jButtonSeleccionarUsuari.addActionListener(this::jButtonSeleccionarUsuariActionPerformed);
 
-        jButton2.setText("Seleccionar...");
+        jButtonSeleccionarJoc.setText("Seleccionar...");
 
         jLabelJocElegit.setText("Joc elegit:");
 
-        jLabel1.setText("Data d'Inici:");
+        jLabelDataInici.setText("Data d'Inici:");
 
-        jLabel2.setText("Data de tornada:");
+        jLabelDataTornada.setText("Data de tornada:");
 
         javax.swing.GroupLayout jPanelDadesLloguerLayout = new javax.swing.GroupLayout(jPanelDadesLloguer);
         jPanelDadesLloguer.setLayout(jPanelDadesLloguerLayout);
@@ -94,18 +105,18 @@ public class LloguerDialog extends javax.swing.JDialog {
                             .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
                                 .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1))
+                                .addComponent(jButtonSeleccionarUsuari))
                             .addComponent(jLabelJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
                                 .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)))
+                                .addComponent(jButtonSeleccionarJoc)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
                         .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDataTornada, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldDataTornada, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -121,25 +132,25 @@ public class LloguerDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonSeleccionarUsuari))
                 .addGap(30, 30, 30)
                 .addComponent(jLabelJocElegit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonSeleccionarJoc))
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1)
+                .addComponent(jLabelDataInici)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jLabelDataTornada)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldDataTornada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Plataforma"));
+        jPanelPlataforma.setBorder(javax.swing.BorderFactory.createTitledBorder("Plataforma"));
 
         jRadioButtonPC.setText("PC");
 
@@ -153,84 +164,144 @@ public class LloguerDialog extends javax.swing.JDialog {
 
         jLabelPs5Quantitat.setText(".");
 
-        jLabelXboxQuantitat2.setText(".");
+        jLabelXboxQuantitat.setText(".");
 
-        jLabelSwitch2Quantitat3.setText(".");
+        jLabelSwitch2Quantitat.setText(".");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelPlataformaLayout = new javax.swing.GroupLayout(jPanelPlataforma);
+        jPanelPlataforma.setLayout(jPanelPlataformaLayout);
+        jPanelPlataformaLayout.setHorizontalGroup(
+            jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPlataformaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jRadioButtonPs5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButtonXbox, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jRadioButtonSwitch2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                     .addComponent(jRadioButtonPC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPCQuantitat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPs5Quantitat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelXboxQuantitat2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSwitch2Quantitat3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelXboxQuantitat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelSwitch2Quantitat, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(105, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanelPlataformaLayout.setVerticalGroup(
+            jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPlataformaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonPC)
                     .addComponent(jLabelPCQuantitat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonPs5)
                     .addComponent(jLabelPs5Quantitat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonXbox)
-                    .addComponent(jLabelXboxQuantitat2))
+                    .addComponent(jLabelXboxQuantitat))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelPlataformaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonSwitch2)
-                    .addComponent(jLabelSwitch2Quantitat3))
+                    .addComponent(jLabelSwitch2Quantitat))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Informació del joc"));
+        jPanelJoc.setBorder(javax.swing.BorderFactory.createTitledBorder("Informació del joc"));
 
-        jLabel3.setText("Gènere: ");
+        jLabelGenere.setText("Gènere: ");
 
-        jLabel4.setText("jLabel4");
+        jLabelNumGenere.setText("0");
 
-        jLabel5.setText("Unitats disponibles:");
+        jLabelUnitatsDisponibles.setText("Unitats disponibles:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jLabelUnidadPS5.setText("PS5:");
+
+        jLabelUnidadXbox.setText("Xbox:");
+
+        jLabelUnidadPC.setText("PC:");
+
+        jLabelUnidadSwitch2.setText("Switch 2:");
+
+        jLabelCantitatPS5.setText("0");
+
+        jLabelCantitatXbox.setText("0");
+
+        jLabelCantitatPC.setText("0");
+
+        jLabelCantitatSwitch2.setText("0");
+
+        javax.swing.GroupLayout jPanelJocLayout = new javax.swing.GroupLayout(jPanelJoc);
+        jPanelJoc.setLayout(jPanelJocLayout);
+        jPanelJocLayout.setHorizontalGroup(
+            jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelJocLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelJocLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelJocLayout.createSequentialGroup()
+                                .addComponent(jLabelUnidadPS5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCantitatPS5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelJocLayout.createSequentialGroup()
+                                .addComponent(jLabelUnidadXbox, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCantitatXbox, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelJocLayout.createSequentialGroup()
+                                .addComponent(jLabelUnidadPC, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCantitatPC, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelJocLayout.createSequentialGroup()
+                                .addComponent(jLabelUnidadSwitch2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelCantitatSwitch2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelJocLayout.createSequentialGroup()
+                            .addComponent(jLabelGenere, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabelNumGenere, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabelUnitatsDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelJocLayout.setVerticalGroup(
+            jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelJocLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelGenere)
+                    .addComponent(jLabelNumGenere))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel5)
+                .addComponent(jLabelUnitatsDisponibles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUnidadPS5)
+                    .addComponent(jLabelCantitatPS5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUnidadXbox)
+                    .addComponent(jLabelCantitatXbox))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUnidadPC)
+                    .addComponent(jLabelCantitatPC))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelJocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUnidadSwitch2)
+                    .addComponent(jLabelCantitatSwitch2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButtonLloguerCancelar.setText("✖️  Cancelar");
+        jButtonLloguerCancelar.addActionListener(this::jButtonLloguerCancelarActionPerformed);
+
+        jButtonLloguerConfirmar.setBackground(new java.awt.Color(51, 204, 0));
+        jButtonLloguerConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonLloguerConfirmar.setText("✔ ️ Confirmar");
+        jButtonLloguerConfirmar.addActionListener(this::jButtonLloguerConfirmarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,9 +312,15 @@ public class LloguerDialog extends javax.swing.JDialog {
                 .addComponent(jPanelDadesLloguer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelJoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonLloguerConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonLloguerCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,10 +331,14 @@ public class LloguerDialog extends javax.swing.JDialog {
                         .addComponent(jPanelDadesLloguer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanelPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(jPanelJoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonLloguerCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLloguerConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -266,6 +347,18 @@ public class LloguerDialog extends javax.swing.JDialog {
     private void jTextFieldNumRegistrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumRegistrActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumRegistrActionPerformed
+
+    private void jButtonLloguerConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerConfirmarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLloguerConfirmarActionPerformed
+
+    private void jButtonLloguerCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLloguerCancelarActionPerformed
+
+    private void jButtonSeleccionarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccionarUsuariActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSeleccionarUsuariActionPerformed
 
     /**
      * @param args the command line arguments
@@ -305,25 +398,35 @@ public class LloguerDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonLloguerCancelar;
+    private javax.swing.JButton jButtonLloguerConfirmar;
+    private javax.swing.JButton jButtonSeleccionarJoc;
+    private javax.swing.JButton jButtonSeleccionarUsuari;
     private javax.swing.JComboBox<String> jComboBoxJocElegit;
     private javax.swing.JComboBox<String> jComboBoxUsuari;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelCantitatPC;
+    private javax.swing.JLabel jLabelCantitatPS5;
+    private javax.swing.JLabel jLabelCantitatSwitch2;
+    private javax.swing.JLabel jLabelCantitatXbox;
+    private javax.swing.JLabel jLabelDataInici;
+    private javax.swing.JLabel jLabelDataTornada;
+    private javax.swing.JLabel jLabelGenere;
     private javax.swing.JLabel jLabelJocElegit;
+    private javax.swing.JLabel jLabelNumGenere;
     private javax.swing.JLabel jLabelNumRegistre;
     private javax.swing.JLabel jLabelPCQuantitat;
     private javax.swing.JLabel jLabelPs5Quantitat;
-    private javax.swing.JLabel jLabelSwitch2Quantitat3;
+    private javax.swing.JLabel jLabelSwitch2Quantitat;
+    private javax.swing.JLabel jLabelUnidadPC;
+    private javax.swing.JLabel jLabelUnidadPS5;
+    private javax.swing.JLabel jLabelUnidadSwitch2;
+    private javax.swing.JLabel jLabelUnidadXbox;
+    private javax.swing.JLabel jLabelUnitatsDisponibles;
     private javax.swing.JLabel jLabelUsuari;
-    private javax.swing.JLabel jLabelXboxQuantitat2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabelXboxQuantitat;
     private javax.swing.JPanel jPanelDadesLloguer;
+    private javax.swing.JPanel jPanelJoc;
+    private javax.swing.JPanel jPanelPlataforma;
     private javax.swing.JRadioButton jRadioButtonPC;
     private javax.swing.JRadioButton jRadioButtonPs5;
     private javax.swing.JRadioButton jRadioButtonSwitch2;
