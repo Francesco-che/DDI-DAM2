@@ -126,6 +126,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuLloguer.add(jMenuItemRegistrarLloguer);
 
         jMenuItemTornarLloguer.setText("Tornar...");
+        jMenuItemTornarLloguer.addActionListener(this::jMenuItemTornarLloguerActionPerformed);
         menuLloguer.add(jMenuItemTornarLloguer);
 
         jMenuBar1.add(menuLloguer);
@@ -176,9 +177,15 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         LloguerScreen dialog = new LloguerScreen(this, true);
         dialog.setVisible(true);
-        // Després de tancar el diàleg, recarregar la taula per si hi ha nous lloguers
         carregarTaulaLloguers();
     }//GEN-LAST:event_jMenuItemRegistrarLloguerActionPerformed
+
+    private void jMenuItemTornarLloguerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemTornarLloguerActionPerformed
+        // TODO add your handling code here:
+        TornarLloguerScreen dialog = new TornarLloguerScreen(this, true);
+        dialog.setVisible(true);
+        carregarTaulaLloguers();
+    }//GEN-LAST:event_jMenuItemTornarLloguerActionPerformed
 
     /**
      * @param args the command line arguments
