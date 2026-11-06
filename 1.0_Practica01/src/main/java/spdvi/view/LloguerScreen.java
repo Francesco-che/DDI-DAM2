@@ -65,8 +65,6 @@ public class LloguerScreen extends javax.swing.JDialog {
         jLabelNumRegistre = new javax.swing.JLabel();
         jLabelUsuari = new javax.swing.JLabel();
         jComboBoxUsuari = new javax.swing.JComboBox<>();
-        jButtonSeleccionarUsuari = new javax.swing.JButton();
-        jButtonSeleccionarJoc = new javax.swing.JButton();
         jLabelJocElegit = new javax.swing.JLabel();
         jComboBoxJocElegit = new javax.swing.JComboBox<>();
         jLabelDataInici = new javax.swing.JLabel();
@@ -107,10 +105,7 @@ public class LloguerScreen extends javax.swing.JDialog {
 
         jLabelUsuari.setText("Usuari: ");
 
-        jButtonSeleccionarUsuari.setText("Seleccionar...");
-        jButtonSeleccionarUsuari.addActionListener(this::jButtonSeleccionarUsuariActionPerformed);
-
-        jButtonSeleccionarJoc.setText("Seleccionar...");
+        jComboBoxUsuari.setFocusTraversalPolicyProvider(true);
 
         jLabelJocElegit.setText("Joc elegit:");
 
@@ -131,19 +126,13 @@ public class LloguerScreen extends javax.swing.JDialog {
                         .addComponent(jTextFieldNumRegistr, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
                     .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
-                        .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
-                                .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonSeleccionarUsuari))
                             .addComponent(jLabelJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
-                                .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonSeleccionarJoc)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jComboBoxJocElegit, 0, 154, Short.MAX_VALUE)
+                            .addComponent(jComboBoxUsuari, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(115, Short.MAX_VALUE))
                     .addGroup(jPanelDadesLloguerLayout.createSequentialGroup()
                         .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,16 +150,12 @@ public class LloguerScreen extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelUsuari)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSeleccionarUsuari))
-                .addGap(30, 30, 30)
+                .addComponent(jComboBoxUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(jLabelJocElegit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelDadesLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonSeleccionarJoc))
-                .addGap(35, 35, 35)
+                .addComponent(jComboBoxJocElegit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(jLabelDataInici)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,10 +372,6 @@ public class LloguerScreen extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLloguerCancelarActionPerformed
 
-    private void jButtonSeleccionarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSeleccionarUsuariActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSeleccionarUsuariActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -431,10 +412,8 @@ public class LloguerScreen extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLloguerCancelar;
     private javax.swing.JButton jButtonLloguerConfirmar;
-    private javax.swing.JButton jButtonSeleccionarJoc;
-    private javax.swing.JButton jButtonSeleccionarUsuari;
-    private javax.swing.JComboBox<String> jComboBoxJocElegit;
-    private javax.swing.JComboBox<String> jComboBoxUsuari;
+    private javax.swing.JComboBox<spdvi.model.Joc> jComboBoxJocElegit;
+    private javax.swing.JComboBox<spdvi.model.Usuari> jComboBoxUsuari;
     private javax.swing.JLabel jLabelCantitatPC;
     private javax.swing.JLabel jLabelCantitatPS5;
     private javax.swing.JLabel jLabelCantitatSwitch2;
