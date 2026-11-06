@@ -3,7 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package spdvi.view;
-
+import spdvi.controller.DataStore;
+import spdvi.model.Usuari;
+import spdvi.model.Joc;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author frand
@@ -18,8 +22,35 @@ public class LloguerScreen extends javax.swing.JDialog {
     public LloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        inicialitzarDadesFormulari();
     }
+    
+    
+    private void inicialitzarDadesFormulari() {
+        jTextFieldNumRegistr.setText(String.format("%02d", DataStore.comptadorLloguers));
+        jTextFieldNumRegistr.setEditable(false);
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate dataInici = LocalDate.now();
+        LocalDate dataTornada = dataInici.plusDays(7);
+
+        jTextFieldDataInici.setText(dataInici.format(formatter));
+        jTextFieldDataInici.setEditable(false);
+
+        jTextFieldDataTornada.setText(dataTornada.format(formatter));
+        jTextFieldDataTornada.setEditable(false);
+
+        jComboBoxUsuari.removeAllItems();
+        for (Usuari u : DataStore.usuaris) {
+            jComboBoxUsuari.addItem(u);
+        }
+
+        jComboBoxJocElegit.removeAllItems();
+        for (Joc j : DataStore.jocs) {
+            jComboBoxJocElegit.addItem(j);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

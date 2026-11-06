@@ -4,8 +4,8 @@
  */
 package spdvi.view;
 
-import controller.DataStore;
-import model.Lloguer;
+import spdvi.controller.DataStore;
+import spdvi.model.Lloguer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.Color;
@@ -30,7 +30,56 @@ public class MainScreen extends javax.swing.JFrame {
         carregarTaulaLloguers();
         configurarRenderitzadorTaula();
     }
-
+    
+    private void carregarTaulaLloguers() {
+            String[] columnes = {"Num. Registre", "Títol del Joc", "Usuari", "Plataforma", "Data d'inici", "Data de Tornada", "Gènere"};
+            DefaultTableModel model = new DefaultTableModel(columnes, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) { return false; } // La taula no es pot editar directament
+            };
+    
+            for (int i = DataStore.lloguers.size() - 1; i >= 0; i--) {
+                Lloguer ll = DataStore.lloguers.get(i);
+                Object[] fila = {
+                    String.format("%02d", ll.getNumRegistre()),
+                    ll.getJoc().getTitol(),
+                    ll.getUsuari().getNom() + " " + ll.getUsuari().getCognoms(),
+                    ll.getPlataforma(),
+                    ll.getDataInici().toString(),
+                    ll.getDataPrevista().toString(),
+                    ll.getJoc().getGenere()
+                };
+                model.addRow(fila);
+            }
+        jTableLloguers.setModel(model);
+    }
+    
+    private void configurarRenderitzadorTaula() {
+    jTableLloguers.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            
+            // Obtenir el número de registre de la fila seleccionada (primera columna)
+            int modelRow = table.convertRowIndexToModel(row);
+            int numReg = Integer.parseInt(table.getModel().getValueAt(modelRow, 0).toString());
+            
+            // Cercar el lloguer corresponent
+            Lloguer lloguer = DataStore.lloguers.stream().filter(l -> l.getNumRegistre() == numReg).findFirst().orElse(null);
+            
+            if (!isSelected && lloguer != null) {
+                if (lloguer.isRetornat()) {
+                    c.setBackground(new Color(200, 255, 200)); // Verd clar per lloguers retornats[cite: 1, 2]
+                } else if (LocalDate.now().isAfter(lloguer.getDataPrevista())) {
+                    c.setBackground(new Color(255, 200, 200)); // Vermell per fora de termini[cite: 1, 2]
+                } else {
+                    c.setBackground(Color.WHITE); // Lloguers actius dins de termini
+                }
+            }
+            return c;
+        }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
