@@ -8,14 +8,14 @@ package spdvi.view;
  *
  * @author frand
  */
-public class LloguerDialog extends javax.swing.JDialog {
+public class LloguerScreen extends javax.swing.JDialog {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LloguerDialog.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LloguerScreen.class.getName());
 
     /**
      * Creates new form LloguerDialog
      */
-    public LloguerDialog(java.awt.Frame parent, boolean modal) {
+    public LloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -385,7 +385,7 @@ public class LloguerDialog extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                LloguerDialog dialog = new LloguerDialog(new javax.swing.JFrame(), true);
+                LloguerScreen dialog = new LloguerScreen(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
