@@ -29,21 +29,146 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPaneTable = new javax.swing.JScrollPane();
+        jTableLloguer = new javax.swing.JTable();
+        jPanelTornarLloguer = new javax.swing.JPanel();
+        jLabelJoc = new javax.swing.JLabel();
+        jLabelUsuari = new javax.swing.JLabel();
+        jLabelPlataforma = new javax.swing.JLabel();
+        jLabelDataInici = new javax.swing.JLabel();
+        jLabelValorJoc = new javax.swing.JLabel();
+        jLabelValorUsuari = new javax.swing.JLabel();
+        jLabelValorPlataforma = new javax.swing.JLabel();
+        jLabelValorDataInici = new javax.swing.JLabel();
+        jButtonMarcarRetornat = new javax.swing.JButton();
+        jButtonLloguerTancar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jTableLloguer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Núm. registre", "Títol del joc", "Usuari", "Plataforma", "Data d'inici"
+            }
+        ));
+        jScrollPaneTable.setViewportView(jTableLloguer);
+
+        jPanelTornarLloguer.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+
+        jLabelJoc.setText("Joc: ");
+
+        jLabelUsuari.setText("Usuari: ");
+
+        jLabelPlataforma.setText("Plataforma: ");
+
+        jLabelDataInici.setText("Data d'inici:");
+
+        jLabelValorJoc.setText("jLabel1");
+
+        jLabelValorUsuari.setText("jLabel1");
+
+        jLabelValorPlataforma.setText("jLabel1");
+
+        jLabelValorDataInici.setText("jLabel1");
+
+        jButtonMarcarRetornat.setBackground(new java.awt.Color(0, 153, 0));
+        jButtonMarcarRetornat.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonMarcarRetornat.setText("↩ ️ Marcar com a retornat");
+        jButtonMarcarRetornat.addActionListener(this::jButtonMarcarRetornatActionPerformed);
+
+        jButtonLloguerTancar.setText("✖️  Tancar");
+        jButtonLloguerTancar.addActionListener(this::jButtonLloguerTancarActionPerformed);
+
+        javax.swing.GroupLayout jPanelTornarLloguerLayout = new javax.swing.GroupLayout(jPanelTornarLloguer);
+        jPanelTornarLloguer.setLayout(jPanelTornarLloguerLayout);
+        jPanelTornarLloguerLayout.setHorizontalGroup(
+            jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTornarLloguerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelJoc, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPlataforma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelDataInici, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelValorPlataforma, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelValorUsuari, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelValorJoc, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelValorDataInici, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonMarcarRetornat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonLloguerTancar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanelTornarLloguerLayout.setVerticalGroup(
+            jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTornarLloguerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTornarLloguerLayout.createSequentialGroup()
+                        .addComponent(jLabelJoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelUsuari)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelPlataforma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelDataInici)
+                            .addComponent(jLabelValorDataInici))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelTornarLloguerLayout.createSequentialGroup()
+                        .addGroup(jPanelTornarLloguerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelTornarLloguerLayout.createSequentialGroup()
+                                .addComponent(jLabelValorJoc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelValorUsuari))
+                            .addComponent(jButtonMarcarRetornat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabelValorPlataforma)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonLloguerTancar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneTable, javax.swing.GroupLayout.DEFAULT_SIZE, 488, Short.MAX_VALUE)
+                    .addComponent(jPanelTornarLloguer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelTornarLloguer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonMarcarRetornatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMarcarRetornatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonMarcarRetornatActionPerformed
+
+    private void jButtonLloguerTancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerTancarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLloguerTancarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -83,5 +208,18 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLloguerTancar;
+    private javax.swing.JButton jButtonMarcarRetornat;
+    private javax.swing.JLabel jLabelDataInici;
+    private javax.swing.JLabel jLabelJoc;
+    private javax.swing.JLabel jLabelPlataforma;
+    private javax.swing.JLabel jLabelUsuari;
+    private javax.swing.JLabel jLabelValorDataInici;
+    private javax.swing.JLabel jLabelValorJoc;
+    private javax.swing.JLabel jLabelValorPlataforma;
+    private javax.swing.JLabel jLabelValorUsuari;
+    private javax.swing.JPanel jPanelTornarLloguer;
+    private javax.swing.JScrollPane jScrollPaneTable;
+    private javax.swing.JTable jTableLloguer;
     // End of variables declaration//GEN-END:variables
 }

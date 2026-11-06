@@ -29,44 +29,44 @@ public class UsuariScreen extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        jLabelNom = new javax.swing.JLabel();
+        jLabelLlinatge1 = new javax.swing.JLabel();
+        jLabelLlinatge2 = new javax.swing.JLabel();
+        jLabelDNI = new javax.swing.JLabel();
+        jLabelTelefon = new javax.swing.JLabel();
+        jLabelDataRegistre = new javax.swing.JLabel();
+        jTextFieldNom = new javax.swing.JTextField();
+        jTextFieldLlinatge1 = new javax.swing.JTextField();
+        jTextFieldLlinatge2 = new javax.swing.JTextField();
+        jTextFieldDNI = new javax.swing.JTextField();
+        jTextFieldTelefon = new javax.swing.JTextField();
+        jTextFieldDataRegistre = new javax.swing.JTextField();
         jButtonUsuariConfirmar = new javax.swing.JButton();
         jButtonUsuariCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Nom *:");
+        jLabelNom.setText("Nom *:");
 
-        jLabel2.setText("Llinatge 1 *:");
+        jLabelLlinatge1.setText("Llinatge 1 *:");
 
-        jLabel3.setText("Llinatge 2 *:");
+        jLabelLlinatge2.setText("Llinatge 2 *:");
 
-        jLabel4.setText("DNI *:");
+        jLabelDNI.setText("DNI *:");
 
-        jLabel5.setText("Telefon *:");
+        jLabelTelefon.setText("Telefon *:");
 
-        jLabel6.setText("Data de registre *:");
+        jLabelDataRegistre.setText("Data de registre *:");
 
-        jTextField1.setText("Anna");
+        jTextFieldNom.setText("Anna");
 
-        jTextField2.setText("Martínez");
+        jTextFieldLlinatge1.setText("Martínez");
 
-        jTextField3.setText("Sanchez");
+        jTextFieldLlinatge2.setText("Sanchez");
 
-        jTextField4.setText("8765466B");
+        jTextFieldDNI.setText("8765466B");
 
-        jTextField5.setText("12345678");
+        jTextFieldTelefon.setText("12345678");
 
         jButtonUsuariConfirmar.setBackground(new java.awt.Color(51, 204, 0));
         jButtonUsuariConfirmar.setForeground(new java.awt.Color(255, 255, 255));
@@ -90,20 +90,20 @@ public class UsuariScreen extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabelLlinatge2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDataRegistre)
+                            .addComponent(jLabelNom, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelLlinatge1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1))))
+                            .addComponent(jTextFieldLlinatge2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldDNI, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldDataRegistre)
+                            .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldLlinatge1)
+                            .addComponent(jTextFieldNom))))
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -111,28 +111,28 @@ public class UsuariScreen extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelNom)
+                    .addComponent(jTextFieldNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelLlinatge1)
+                    .addComponent(jTextFieldLlinatge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelLlinatge2)
+                    .addComponent(jTextFieldLlinatge2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelDNI)
+                    .addComponent(jTextFieldDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelTelefon)
+                    .addComponent(jTextFieldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelDataRegistre)
+                    .addComponent(jTextFieldDataRegistre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonUsuariCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,17 +191,17 @@ public class UsuariScreen extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonUsuariCancelar;
     private javax.swing.JButton jButtonUsuariConfirmar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel jLabelDNI;
+    private javax.swing.JLabel jLabelDataRegistre;
+    private javax.swing.JLabel jLabelLlinatge1;
+    private javax.swing.JLabel jLabelLlinatge2;
+    private javax.swing.JLabel jLabelNom;
+    private javax.swing.JLabel jLabelTelefon;
+    private javax.swing.JTextField jTextFieldDNI;
+    private javax.swing.JTextField jTextFieldDataRegistre;
+    private javax.swing.JTextField jTextFieldLlinatge1;
+    private javax.swing.JTextField jTextFieldLlinatge2;
+    private javax.swing.JTextField jTextFieldNom;
+    private javax.swing.JTextField jTextFieldTelefon;
     // End of variables declaration//GEN-END:variables
 }
