@@ -75,6 +75,6 @@ public class Joc {
 
     @Override
     public String toString() {
-        return "Joc{" + "titol=" + titol + ", genere=" + genere + ", stockPS5=" + stockPS5 + ", stockSwitch2=" + stockSwitch2 + ", stockXbox=" + stockXbox + ", stockPC=" + stockPC + '}';
+        return titol;
     }
 }

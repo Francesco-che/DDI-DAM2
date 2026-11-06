@@ -122,6 +122,7 @@ public class MainScreen extends javax.swing.JFrame {
         menuLloguer.setText("Lloguer");
 
         jMenuItemRegistrarLloguer.setText("Registrar...");
+        jMenuItemRegistrarLloguer.addActionListener(this::jMenuItemRegistrarLloguerActionPerformed);
         menuLloguer.add(jMenuItemRegistrarLloguer);
 
         jMenuItemTornarLloguer.setText("Tornar...");
@@ -170,6 +171,14 @@ public class MainScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemRegistrarLloguerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRegistrarLloguerActionPerformed
+        // TODO add your handling code here:
+        LloguerScreen dialog = new LloguerScreen(this, true);
+        dialog.setVisible(true);
+        // Després de tancar el diàleg, recarregar la taula per si hi ha nous lloguers
+        carregarTaulaLloguers();
+    }//GEN-LAST:event_jMenuItemRegistrarLloguerActionPerformed
 
     /**
      * @param args the command line arguments
