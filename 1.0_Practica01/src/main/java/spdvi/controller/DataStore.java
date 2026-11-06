@@ -19,6 +19,8 @@ public class DataStore {
     public static List<Usuari> usuaris = new ArrayList<>();
     public static List<Joc> jocs = new ArrayList<>();
     public static List<Lloguer> lloguers = new ArrayList<>();
+    
+    public static int comptadorLloguers = 1;
 
     public static void inicialitzarDades() {
         Usuari u1 = new Usuari("Mohamed", "Amine", "Kartibou", "11111111A", "600000000", LocalDate.now());
