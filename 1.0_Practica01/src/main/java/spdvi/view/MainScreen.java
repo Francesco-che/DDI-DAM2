@@ -4,7 +4,14 @@
  */
 package spdvi.view;
 
+import controller.DataStore;
+import model.Lloguer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.Color;
+import java.awt.Component;
 import javax.swing.JTable;
+import java.time.LocalDate;
 
 /**
  *
@@ -19,6 +26,9 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
+        DataStore.inicialitzarDades();
+        carregarTaulaLloguers();
+        configurarRenderitzadorTaula();
     }
 
     /**
