@@ -48,6 +48,10 @@ public class Usuari {
     public void setCognom2(String cognom2) {
         this.cognom2 = cognom2;
     }
+    
+    public String getCognoms() {
+        return cognom1 + cognom2;
+    }
 
     public String getDni() {
         return dni;
@@ -72,6 +76,8 @@ public class Usuari {
     public void setDataRegistre(LocalDate dataRegistre) {
         this.dataRegistre = dataRegistre;
     }
+    
+    
 
     @Override
     public String toString() {
