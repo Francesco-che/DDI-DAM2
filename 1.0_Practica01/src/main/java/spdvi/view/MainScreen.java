@@ -134,9 +134,11 @@ public class MainScreen extends javax.swing.JFrame {
         menuUsuari.setText("Usuari");
 
         jMenuItemCrearUsuari.setText("Crear...");
+        jMenuItemCrearUsuari.addActionListener(this::jMenuItemCrearUsuariActionPerformed);
         menuUsuari.add(jMenuItemCrearUsuari);
 
         jMenuItemBorrarUsuari.setText("Borrar...");
+        jMenuItemBorrarUsuari.addActionListener(this::jMenuItemBorrarUsuariActionPerformed);
         menuUsuari.add(jMenuItemBorrarUsuari);
 
         jMenuBar1.add(menuUsuari);
@@ -186,6 +188,18 @@ public class MainScreen extends javax.swing.JFrame {
         dialog.setVisible(true);
         carregarTaulaLloguers();
     }//GEN-LAST:event_jMenuItemTornarLloguerActionPerformed
+
+    private void jMenuItemCrearUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCrearUsuariActionPerformed
+        // TODO add your handling code here:
+        UsuariScreen dialog = new UsuariScreen(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemCrearUsuariActionPerformed
+
+    private void jMenuItemBorrarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarUsuariActionPerformed
+        // TODO add your handling code here:
+        CrearJocScreen dialog = new CrearJocScreen(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItemBorrarUsuariActionPerformed
 
     /**
      * @param args the command line arguments
