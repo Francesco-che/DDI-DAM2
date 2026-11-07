@@ -32,14 +32,6 @@ public class LloguerScreen extends javax.swing.JDialog {
         configurarEventCanviJoc();
         
         setTitle("Registrar lloguer");
-        try {
-            java.net.URL imgURL = getClass().getResource("spdvi/resources/iconoLloguer.png");
-            if (imgURL != null) {
-                setIconImage(new javax.swing.ImageIcon(imgURL).getImage());
-            }
-        } catch (Exception e) {
-            System.out.println("No s'ha trobat la imatge de l'icono.");
-        }
     }
     
     private void configurarRadioButtons() {

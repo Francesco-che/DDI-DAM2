@@ -33,18 +33,19 @@ public class MainScreen extends javax.swing.JFrame {
         
         setTitle("Gestió de Lloguer de Videojocs");
         try {
-            java.net.URL imgURL = getClass().getResource("spdvi/resources/iconoMain.png");
+            java.net.URL imgURL = getClass().getResource("/spdvi/resources/iconoMain.png"); 
             if (imgURL != null) {
                 setIconImage(new javax.swing.ImageIcon(imgURL).getImage());
+            } else {
+                System.err.println("No s'ha trobat la imatge de l'icono a la ruta especificada.");
             }
         } catch (Exception e) {
-            System.out.println("No s'ha trobat la imatge de l'icono.");
+            e.printStackTrace();
         }
         
         DataStore.inicialitzarDades();
         carregarTaulaLloguers();
         configurarRenderitzadorTaula();
-        configurarEventsMenu();
         
         
     }
@@ -106,39 +107,6 @@ public class MainScreen extends javax.swing.JFrame {
         );
     }
     
-    private void configurarEventsMenu() {
-        // Menú Lloguer -> Registrar
-        jMenuItemRegistrarLloguer.addActionListener(evt -> {
-            LloguerScreen dialog = new LloguerScreen(this, true);
-            dialog.setVisible(true);
-            carregarTaulaLloguers(); // Refrescar al cerrar
-        });
-
-        // Menú Lloguer -> Tornar
-        jMenuItemTornarLloguer.addActionListener(evt -> {
-            TornarLloguerScreen dialog = new TornarLloguerScreen(this, true);
-            dialog.setVisible(true);
-            carregarTaulaLloguers(); // Refrescar al cerrar
-        });
-
-        // Menú Usuari -> Crear
-        jMenuItemCrearUsuari.addActionListener(evt -> {
-            UsuariScreen dialog = new UsuariScreen(this, true);
-            dialog.setVisible(true);
-        });
-
-        // Menú Usuari -> Borrar
-        jMenuItemBorrarUsuari.addActionListener(evt -> borrarUsuari());
-
-        // Menú Joc -> Crear
-        jMenuItemCrearJoc.addActionListener(evt -> {
-            CrearJocScreen dialog = new CrearJocScreen(this, true);
-            dialog.setVisible(true);
-        });
-
-        // Menú Joc -> Borrar
-        jMenuItemBorrarJoc.addActionListener(evt -> borrarJoc());
-    }
     
     /**
      * Como en la practica no se especifica una pantalla para borrar usuarios y juegos, voy a añadir pop ups, ya que es una funcionalidad simple
