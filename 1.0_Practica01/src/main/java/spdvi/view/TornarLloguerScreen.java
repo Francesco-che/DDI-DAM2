@@ -4,6 +4,10 @@
  */
 package spdvi.view;
 
+import javax.swing.table.DefaultTableModel;
+import spdvi.controller.DataStore;
+import spdvi.model.Lloguer;
+
 /**
  *
  * @author frand
@@ -20,6 +24,7 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
         initComponents();
         
         netejarLabels();
+        carregarTaulaTornarLloguers();
     }
     
     private void netejarLabels() {
@@ -27,6 +32,27 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
         jLabelValorUsuari.setText("-");
         jLabelValorPlataforma.setText("-");
         jLabelValorDataInici.setText("-");
+    }
+    
+    private void carregarTaulaTornarLloguers() {
+        String[] columnes = {"Núm. registre", "Títol del joc", "Usuari", "Plataforma", "Data d'inici"};
+        DefaultTableModel model = new DefaultTableModel(columnes, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) { return false; }
+        };
+
+        for (int i = DataStore.lloguers.size() - 1; i >= 0; i--) {
+            Lloguer ll = DataStore.lloguers.get(i);
+            Object[] fila = {
+                String.format("%02d", ll.getNumRegistre()),
+                ll.getJoc().getTitol(),
+                ll.getUsuari().getNom() + " " + ll.getUsuari().getCognoms(),
+                ll.getPlataforma(),
+                ll.getDataInici().toString()
+            };
+            model.addRow(fila);
+        }
+        jTableLloguer.setModel(model);
     }
 
     /**
