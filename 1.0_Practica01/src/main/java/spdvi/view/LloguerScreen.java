@@ -8,6 +8,7 @@ import spdvi.model.Usuari;
 import spdvi.model.Joc;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javax.swing.ButtonGroup;
 /**
  *
  * @author frand
@@ -22,7 +23,17 @@ public class LloguerScreen extends javax.swing.JDialog {
     public LloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        configurarRadioButtons();
         inicialitzarDadesFormulari();
+        configurarEventCanviJoc();
+    }
+    
+    private void configurarRadioButtons() {
+        grupPlataformes = new ButtonGroup();
+        grupPlataformes.add(jRadioButtonPC);
+        grupPlataformes.add(jRadioButtonPs5);
+        grupPlataformes.add(jRadioButtonXbox);
+        grupPlataformes.add(jRadioButtonSwitch2);
     }
     
     
