@@ -6,7 +6,10 @@ package spdvi.view;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import javax.swing.JOptionPane;
+import spdvi.controller.DataStore;
+import spdvi.model.Usuari;
+import spdvi.utils.ValidationAPI;
 /**
  *
  * @author frand
@@ -165,10 +168,41 @@ public class UsuariScreen extends javax.swing.JDialog {
 
     private void jButtonUsuariConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariConfirmarActionPerformed
         // TODO add your handling code here:
+        String nom = jTextFieldNom.getText().trim();
+        String llinatge1 = jTextFieldLlinatge1.getText().trim();
+        String llinatge2 = jTextFieldLlinatge2.getText().trim();
+        String dni = jTextFieldDNI.getText().trim();
+        String telefon = jTextFieldTelefon.getText().trim();
+
+        // Validació bàsica de camps buits
+        if (nom.isEmpty() || llinatge1.isEmpty() || dni.isEmpty() || telefon.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Si us plau, omple tots els camps obligatoris (*).", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // ValidationAPI, para validar las mayusculas del nombre
+        if (!ValidationAPI.validarNomMajuscula(nom)) {
+            JOptionPane.showMessageDialog(this, 
+                "El nom introduït ha de començar obligatòriament amb lletra majúscula.", 
+                "Error de Validació", 
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Crear el nou usuari
+        Usuari nouUsuari = new Usuari(nom, llinatge1, llinatge2, dni, telefon, LocalDate.now());
+        
+        // Afegir-lo a la llista de dades en memòria
+        DataStore.usuaris.add(nouUsuari);
+
+        // Missatge d'èxit i tancar la finestra
+        JOptionPane.showMessageDialog(this, "Usuari creat correctament.", "Confirmació", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
     }//GEN-LAST:event_jButtonUsuariConfirmarActionPerformed
 
     private void jButtonUsuariCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonUsuariCancelarActionPerformed
 
     /**
