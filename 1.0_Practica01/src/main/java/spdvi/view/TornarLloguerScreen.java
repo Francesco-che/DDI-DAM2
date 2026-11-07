@@ -18,6 +18,15 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
     public TornarLloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        netejarLabels();
+    }
+    
+    private void netejarLabels() {
+        jLabelValorJoc.setText("-");
+        jLabelValorUsuari.setText("-");
+        jLabelValorPlataforma.setText("-");
+        jLabelValorDataInici.setText("-");
     }
 
     /**
