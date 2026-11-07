@@ -24,6 +24,7 @@ public class UsuariScreen extends javax.swing.JDialog {
     public UsuariScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setTitle("Crear usuari");
         inicialitzarDadesFormulari();
     }
     

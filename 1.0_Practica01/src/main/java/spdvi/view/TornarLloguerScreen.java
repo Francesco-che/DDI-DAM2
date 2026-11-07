@@ -24,7 +24,7 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
     public TornarLloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        setTitle("Tornar lloguer");
         netejarLabels();
         carregarTaulaTornarLloguers();
         configurarEventSeleccioTaula();

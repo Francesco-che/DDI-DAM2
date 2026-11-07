@@ -30,20 +30,23 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
-        DataStore.inicialitzarDades();
-        carregarTaulaLloguers();
-        configurarRenderitzadorTaula();
-        configurarEventsMenu();
         
         setTitle("Gestió de Lloguer de Videojocs");
         try {
-            java.net.URL imgURL = getClass().getResource("/spdvi/resources/iconoMain.png");
+            java.net.URL imgURL = getClass().getResource("spdvi/resources/iconoMain.png");
             if (imgURL != null) {
                 setIconImage(new javax.swing.ImageIcon(imgURL).getImage());
             }
         } catch (Exception e) {
             System.out.println("No s'ha trobat la imatge de l'icono.");
         }
+        
+        DataStore.inicialitzarDades();
+        carregarTaulaLloguers();
+        configurarRenderitzadorTaula();
+        configurarEventsMenu();
+        
+        
     }
     
     private void carregarTaulaLloguers() {

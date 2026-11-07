@@ -24,7 +24,7 @@ public class CrearJocScreen extends javax.swing.JDialog {
     public CrearJocScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        setTitle("Crear joc");
         inicialitzarDadesFormulari();
         configurarEventsCheckboxes();
     }
