@@ -46,13 +46,15 @@ public class DataStore {
         Lloguer ll2 = new Lloguer(comptadorLloguers++, u2, j2, "PC", LocalDate.now(), LocalDate.now().plusDays(7), true);
         Lloguer ll3 = new Lloguer(comptadorLloguers++, u3, j3, "PC", LocalDate.now(), LocalDate.now().plusDays(5), true);
         Lloguer ll4 = new Lloguer(comptadorLloguers++, u4, j3, "Xbox", LocalDate.now(), LocalDate.now().plusDays(2), true);
-        Lloguer ll5 = new Lloguer(comptadorLloguers++, u1, j4, "PS5", LocalDate.now().minusDays(10), LocalDate.now().minusDays(5), true);
+        Lloguer ll5 = new Lloguer(comptadorLloguers++, u1, j4, "PS5", LocalDate.now().minusDays(15), LocalDate.now().minusDays(2), false);
+        Lloguer ll6 = new Lloguer(comptadorLloguers++, u3, j2, "Switch 2", LocalDate.now().minusDays(5), LocalDate.now().minusDays(3), false);
 
         lloguers.add(ll1);
         lloguers.add(ll2);
         lloguers.add(ll3);
         lloguers.add(ll4);
         lloguers.add(ll5);
+        lloguers.add(ll6);
 
     }
 }
