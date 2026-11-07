@@ -120,13 +120,13 @@
                       <Component id="jLabelDataInici" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelValorPlataforma" min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="jLabelValorUsuari" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="jLabelValorJoc" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                      <Component id="jLabelValorDataInici" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jLabelValorJoc" alignment="0" pref="100" max="32767" attributes="0"/>
+                      <Component id="jLabelValorUsuari" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelValorPlataforma" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelValorDataInici" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="112" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButtonMarcarRetornat" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
                       <Component id="jButtonLloguerTancar" alignment="1" min="-2" pref="114" max="-2" attributes="0"/>
