@@ -23,8 +23,8 @@ import spdvi.model.Usuari;
 public class MainScreen extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainScreen.class.getName());
     private JTable taulaLloguers;
-
-
+    
+    
     /**
      * Creates new form MainScreen
      */
@@ -33,7 +33,17 @@ public class MainScreen extends javax.swing.JFrame {
         DataStore.inicialitzarDades();
         carregarTaulaLloguers();
         configurarRenderitzadorTaula();
-//        configurarEventsMenu();
+        configurarEventsMenu();
+        
+        setTitle("Gestió de Lloguer de Videojocs");
+        try {
+            java.net.URL imgURL = getClass().getResource("/spdvi/resources/iconoMain.png");
+            if (imgURL != null) {
+                setIconImage(new javax.swing.ImageIcon(imgURL).getImage());
+            }
+        } catch (Exception e) {
+            System.out.println("No s'ha trobat la imatge de l'icono.");
+        }
     }
     
     private void carregarTaulaLloguers() {
@@ -91,6 +101,40 @@ public class MainScreen extends javax.swing.JFrame {
             }
             }
         );
+    }
+    
+    private void configurarEventsMenu() {
+        // Menú Lloguer -> Registrar
+        jMenuItemRegistrarLloguer.addActionListener(evt -> {
+            LloguerScreen dialog = new LloguerScreen(this, true);
+            dialog.setVisible(true);
+            carregarTaulaLloguers(); // Refrescar al cerrar
+        });
+
+        // Menú Lloguer -> Tornar
+        jMenuItemTornarLloguer.addActionListener(evt -> {
+            TornarLloguerScreen dialog = new TornarLloguerScreen(this, true);
+            dialog.setVisible(true);
+            carregarTaulaLloguers(); // Refrescar al cerrar
+        });
+
+        // Menú Usuari -> Crear
+        jMenuItemCrearUsuari.addActionListener(evt -> {
+            UsuariScreen dialog = new UsuariScreen(this, true);
+            dialog.setVisible(true);
+        });
+
+        // Menú Usuari -> Borrar
+        jMenuItemBorrarUsuari.addActionListener(evt -> borrarUsuari());
+
+        // Menú Joc -> Crear
+        jMenuItemCrearJoc.addActionListener(evt -> {
+            CrearJocScreen dialog = new CrearJocScreen(this, true);
+            dialog.setVisible(true);
+        });
+
+        // Menú Joc -> Borrar
+        jMenuItemBorrarJoc.addActionListener(evt -> borrarJoc());
     }
     
     /**
@@ -169,6 +213,8 @@ public class MainScreen extends javax.swing.JFrame {
             }
         }
     }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
