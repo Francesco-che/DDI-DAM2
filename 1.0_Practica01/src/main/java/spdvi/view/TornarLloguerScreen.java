@@ -25,6 +25,7 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
         
         netejarLabels();
         carregarTaulaTornarLloguers();
+        configurarEventSeleccioTaula();
     }
     
     private void netejarLabels() {
@@ -54,7 +55,30 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
         }
         jTableLloguer.setModel(model);
     }
-
+    
+    private void configurarEventSeleccioTaula() {
+        jTableLloguer.getSelectionModel().addListSelectionListener(evt -> {
+            if (!evt.getValueIsAdjusting() && jTableLloguer.getSelectedRow() != -1) {
+                // Obtenir el número de registre de la fila seleccionada
+                int modelRow = jTableLloguer.convertRowIndexToModel(jTableLloguer.getSelectedRow());
+                int numReg = Integer.parseInt(jTableLloguer.getModel().getValueAt(modelRow, 0).toString());
+                
+                // Cercar el lloguer corresponent al DataStore
+                Lloguer seleccionat = DataStore.lloguers.stream()
+                        .filter(l -> l.getNumRegistre() == numReg)
+                        .findFirst()
+                        .orElse(null);
+                
+                if (seleccionat != null) {
+                    // Actualitzar els labels inferiors amb les dades[cite: 14]
+                    jLabelValorJoc.setText(seleccionat.getJoc().getTitol());
+                    jLabelValorUsuari.setText(seleccionat.getUsuari().getNom() + " " + seleccionat.getUsuari().getCognom1());
+                    jLabelValorPlataforma.setText(seleccionat.getPlataforma());
+                    jLabelValorDataInici.setText(seleccionat.getDataInici().toString());
+                }
+            }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
