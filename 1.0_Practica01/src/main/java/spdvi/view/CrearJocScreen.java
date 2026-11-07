@@ -28,10 +28,8 @@ public class CrearJocScreen extends javax.swing.JDialog {
     
     
     private void inicialitzarDadesFormulari() {
-        // Buidar el camp de text
         jTextFieldNomJoc.setText("");
 
-        // Configurar els gèneres al desplegable
         String[] generes = {"Acció", "Aventura", "Esports", "Estratègia", "Rol", "Simulació"};
         jComboBoxGenereJoc.setModel(new DefaultComboBoxModel<>(generes));
 
@@ -45,6 +43,13 @@ public class CrearJocScreen extends javax.swing.JDialog {
         jSpinnerXbox.setEnabled(false);
         jSpinnerPC.setEnabled(false);
         jSpinnerSwitch2.setEnabled(false);
+    }
+    
+    private void configurarEventsCheckboxes() {
+        jCheckBoxPs5.addActionListener(evt -> jSpinnerPS5.setEnabled(jCheckBoxPs5.isSelected()));
+        jCheckBoxXbox.addActionListener(evt -> jSpinnerXbox.setEnabled(jCheckBoxXbox.isSelected()));
+        jCheckBoxPC.addActionListener(evt -> jSpinnerPC.setEnabled(jCheckBoxPC.isSelected()));
+        jCheckBoxSwitch2.addActionListener(evt -> jSpinnerSwitch2.setEnabled(jCheckBoxSwitch2.isSelected()));
     }
     /**
      * This method is called from within the constructor to initialize the form.
