@@ -5,7 +5,10 @@
 package spdvi.view;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import spdvi.controller.DataStore;
+import spdvi.model.Joc;
 
 /**
  *
@@ -214,6 +217,32 @@ public class CrearJocScreen extends javax.swing.JDialog {
 
     private void jButtonJocConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJocConfirmarActionPerformed
         // TODO add your handling code here:
+        String nomJoc = jTextFieldNomJoc.getText().trim();
+        String genere = jComboBoxGenereJoc.getSelectedItem().toString();
+
+        if (nomJoc.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El nom del joc és obligatori.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int stockPS5 = jCheckBoxPs5.isSelected() ? (int) jSpinnerPS5.getValue() : 0;
+        int stockXbox = jCheckBoxXbox.isSelected() ? (int) jSpinnerXbox.getValue() : 0;
+        int stockPC = jCheckBoxPC.isSelected() ? (int) jSpinnerPC.getValue() : 0;
+        int stockSwitch2 = jCheckBoxSwitch2.isSelected() ? (int) jSpinnerSwitch2.getValue() : 0;
+
+        if (stockPS5 == 0 && stockXbox == 0 && stockPC == 0 && stockSwitch2 == 0) {
+            JOptionPane.showMessageDialog(this, 
+                "Has d'assignar almenys una unitat a alguna plataforma.", 
+                "Error de Validació", 
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Joc nouJoc = new Joc(nomJoc, genere, stockPS5, stockSwitch2, stockXbox, stockPC);
+        DataStore.jocs.add(nouJoc);
+
+        JOptionPane.showMessageDialog(this, "Joc creat correctament.", "Confirmació", JOptionPane.INFORMATION_MESSAGE);
+        this.dispose();
     }//GEN-LAST:event_jButtonJocConfirmarActionPerformed
 
     private void jButtonJocCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJocCancelarActionPerformed
