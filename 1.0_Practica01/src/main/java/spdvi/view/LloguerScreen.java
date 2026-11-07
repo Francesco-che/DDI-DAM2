@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package spdvi.view;
+import java.awt.event.ItemEvent;
 import spdvi.controller.DataStore;
 import spdvi.model.Usuari;
 import spdvi.model.Joc;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author frand
@@ -51,15 +53,56 @@ public class LloguerScreen extends javax.swing.JDialog {
         jTextFieldDataTornada.setText(dataTornada.format(formatter));
         jTextFieldDataTornada.setEditable(false);
 
-        jComboBoxUsuari.removeAllItems();
+        DefaultComboBoxModel<Usuari> modelUsuari = new DefaultComboBoxModel<>();
         for (Usuari u : DataStore.usuaris) {
-            jComboBoxUsuari.addItem(u);
+            modelUsuari.addElement(u);
         }
+        jComboBoxUsuari.setModel(modelUsuari);
 
-        jComboBoxJocElegit.removeAllItems();
+        // Carregar Jocs[cite: 8]
+        DefaultComboBoxModel<Joc> modelJoc = new DefaultComboBoxModel<>();
         for (Joc j : DataStore.jocs) {
-            jComboBoxJocElegit.addItem(j);
+            modelJoc.addElement(j);
         }
+        jComboBoxJocElegit.setModel(modelJoc);
+
+        // Forzar la actualización visual con el primer juego de la lista
+        actualitzarDisponibilitat((Joc) jComboBoxJocElegit.getSelectedItem());
+    }
+    
+    private void configurarEventCanviJoc() {
+        jComboBoxJocElegit.addItemListener(evt -> {
+            if (evt.getStateChange() == ItemEvent.SELECTED) {
+                Joc jocSeleccionat = (Joc) evt.getItem();
+                actualitzarDisponibilitat(jocSeleccionat);
+            }
+        });
+    }
+    
+    private void actualitzarDisponibilitat(Joc joc) {
+        if (joc == null) return;
+
+        // Mostrar dades generals del joc als labels inferiors[cite: 8]
+        jLabelNumGenere.setText(joc.getGenere());
+        jLabelCantitatPS5.setText(String.valueOf(joc.getStockPS5()));
+        jLabelCantitatXbox.setText(String.valueOf(joc.getStockXbox()));
+        jLabelCantitatPC.setText(String.valueOf(joc.getStockPC()));
+        jLabelCantitatSwitch2.setText(String.valueOf(joc.getStockSwitch2()));
+
+        // Netejar la selecció prèvia dels radio buttons
+        grupPlataformes.clearSelection();
+
+        // Habilitar o deshabilitar segons l'estoc (> 0)
+        jRadioButtonPs5.setEnabled(joc.getStockPS5() > 0);
+        jRadioButtonXbox.setEnabled(joc.getStockXbox() > 0);
+        jRadioButtonPC.setEnabled(joc.getStockPC() > 0);
+        jRadioButtonSwitch2.setEnabled(joc.getStockSwitch2() > 0);
+        
+        // Opcional: Mostrar la quantitat al costat del radio button per claredat[cite: 8]
+        jLabelPs5Quantitat.setText("(" + joc.getStockPS5() + " disp.)");
+        jLabelXboxQuantitat.setText("(" + joc.getStockXbox() + " disp.)");
+        jLabelPCQuantitat.setText("(" + joc.getStockPC() + " disp.)");
+        jLabelSwitch2Quantitat.setText("(" + joc.getStockSwitch2() + " disp.)");
     }
     
     /**
