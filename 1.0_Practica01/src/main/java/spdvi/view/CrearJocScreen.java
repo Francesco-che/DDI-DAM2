@@ -4,6 +4,9 @@
  */
 package spdvi.view;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author frand
@@ -18,8 +21,31 @@ public class CrearJocScreen extends javax.swing.JDialog {
     public CrearJocScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        inicialitzarDadesFormulari();
+        configurarEventsCheckboxes();
     }
+    
+    
+    private void inicialitzarDadesFormulari() {
+        // Buidar el camp de text
+        jTextFieldNomJoc.setText("");
 
+        // Configurar els gèneres al desplegable
+        String[] generes = {"Acció", "Aventura", "Esports", "Estratègia", "Rol", "Simulació"};
+        jComboBoxGenereJoc.setModel(new DefaultComboBoxModel<>(generes));
+
+        // controlar los valores de los Spiners
+        jSpinnerPS5.setModel(new SpinnerNumberModel(0, 0, 999, 1));
+        jSpinnerXbox.setModel(new SpinnerNumberModel(0, 0, 999, 1));
+        jSpinnerPC.setModel(new SpinnerNumberModel(0, 0, 999, 1));
+        jSpinnerSwitch2.setModel(new SpinnerNumberModel(0, 0, 999, 1));
+
+        jSpinnerPS5.setEnabled(false);
+        jSpinnerXbox.setEnabled(false);
+        jSpinnerPC.setEnabled(false);
+        jSpinnerSwitch2.setEnabled(false);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

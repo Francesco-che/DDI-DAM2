@@ -36,7 +36,6 @@ public class UsuariScreen extends javax.swing.JDialog {
         jTextFieldDataRegistre.setText(dataAvui);
         jTextFieldDataRegistre.setEditable(false);
         
-        // Buidar els camps per defecte (per netejar el que hagis posat en el dissenyador)
         jTextFieldNom.setText("");
         jTextFieldLlinatge1.setText("");
         jTextFieldLlinatge2.setText("");
@@ -174,7 +173,6 @@ public class UsuariScreen extends javax.swing.JDialog {
         String dni = jTextFieldDNI.getText().trim();
         String telefon = jTextFieldTelefon.getText().trim();
 
-        // Validació bàsica de camps buits
         if (nom.isEmpty() || llinatge1.isEmpty() || dni.isEmpty() || telefon.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Si us plau, omple tots els camps obligatoris (*).", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -189,13 +187,10 @@ public class UsuariScreen extends javax.swing.JDialog {
             return;
         }
 
-        // Crear el nou usuari
         Usuari nouUsuari = new Usuari(nom, llinatge1, llinatge2, dni, telefon, LocalDate.now());
         
-        // Afegir-lo a la llista de dades en memòria
         DataStore.usuaris.add(nouUsuari);
 
-        // Missatge d'èxit i tancar la finestra
         JOptionPane.showMessageDialog(this, "Usuari creat correctament.", "Confirmació", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
     }//GEN-LAST:event_jButtonUsuariConfirmarActionPerformed
