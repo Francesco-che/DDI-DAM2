@@ -154,9 +154,11 @@ public class MainScreen extends javax.swing.JFrame {
         menuJoc.setText("Joc");
 
         jMenuItemCrearJoc.setText("Crear...");
+        jMenuItemCrearJoc.addActionListener(this::jMenuItemCrearJocActionPerformed);
         menuJoc.add(jMenuItemCrearJoc);
 
         jMenuItemBorrarJoc.setText("Borrar...");
+        jMenuItemBorrarJoc.addActionListener(this::jMenuItemBorrarJocActionPerformed);
         menuJoc.add(jMenuItemBorrarJoc);
 
         jMenuBar1.add(menuJoc);
@@ -205,9 +207,17 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jMenuItemBorrarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarUsuariActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemBorrarUsuariActionPerformed
+
+    private void jMenuItemCrearJocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCrearJocActionPerformed
+        // TODO add your handling code here:
         CrearJocScreen dialog = new CrearJocScreen(this, true);
         dialog.setVisible(true);
-    }//GEN-LAST:event_jMenuItemBorrarUsuariActionPerformed
+    }//GEN-LAST:event_jMenuItemCrearJocActionPerformed
+
+    private void jMenuItemBorrarJocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarJocActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemBorrarJocActionPerformed
 
     /**
      * @param args the command line arguments
