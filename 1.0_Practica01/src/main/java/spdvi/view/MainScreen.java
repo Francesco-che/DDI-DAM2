@@ -12,6 +12,9 @@ import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JTable;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
+import spdvi.model.Joc;
+import spdvi.model.Usuari;
 
 /**
  *
@@ -87,6 +90,83 @@ public class MainScreen extends javax.swing.JFrame {
             }
             }
         );
+    }
+    
+    /**
+     * Como en la practica no se especifica una pantalla para borrar usuarios y juegos, voy a añadir pop ups, ya que es una funcionalidad simple
+     * Pop up para borrar usuarios
+     */
+    private void borrarUsuari() {
+        if (DataStore.usuaris.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hi ha usuaris per eliminar.", "Avís", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        Usuari seleccionat = (Usuari) JOptionPane.showInputDialog(
+                this,
+                "Selecciona l'usuari que vols eliminar:",
+                "Eliminar Usuari",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                DataStore.usuaris.toArray(),
+                DataStore.usuaris.get(0)
+        );
+
+        if (seleccionat != null) {
+            boolean teLloguersActius = DataStore.lloguers.stream()
+                    .anyMatch(l -> l.getUsuari().equals(seleccionat) && !l.isRetornat());
+
+            if (teLloguersActius) {
+                JOptionPane.showMessageDialog(this,
+                        "No es pot eliminar l'usuari perquè té lloguers actius.",
+                        "Error d'eliminació",
+                        JOptionPane.ERROR_MESSAGE);
+            } else {
+                DataStore.usuaris.remove(seleccionat);
+                JOptionPane.showMessageDialog(this,
+                        "Usuari eliminat correctament.",
+                        "Èxit",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }
+
+    /**
+     * Pop up para borrar juegos
+     */
+    private void borrarJoc() {
+        if (DataStore.jocs.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No hi ha jocs per eliminar.", "Avís", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        Joc seleccionat = (Joc) JOptionPane.showInputDialog(
+                this,
+                "Selecciona el joc que vols eliminar:",
+                "Eliminar Joc",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                DataStore.jocs.toArray(),
+                DataStore.jocs.get(0)
+        );
+
+        if (seleccionat != null) {
+            boolean teLloguersActius = DataStore.lloguers.stream()
+                    .anyMatch(l -> l.getJoc().equals(seleccionat) && !l.isRetornat());
+
+            if (teLloguersActius) {
+                JOptionPane.showMessageDialog(this,
+                        "No es pot eliminar el joc perquè té lloguers actius.",
+                        "Error d'eliminació",
+                        JOptionPane.ERROR_MESSAGE);
+            } else {
+                DataStore.jocs.remove(seleccionat);
+                JOptionPane.showMessageDialog(this,
+                        "Joc eliminat correctament.",
+                        "Èxit",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -207,6 +287,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jMenuItemBorrarUsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarUsuariActionPerformed
         // TODO add your handling code here:
+        borrarUsuari();
     }//GEN-LAST:event_jMenuItemBorrarUsuariActionPerformed
 
     private void jMenuItemCrearJocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCrearJocActionPerformed
@@ -217,6 +298,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void jMenuItemBorrarJocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemBorrarJocActionPerformed
         // TODO add your handling code here:
+        borrarJoc();
     }//GEN-LAST:event_jMenuItemBorrarJocActionPerformed
 
     /**
