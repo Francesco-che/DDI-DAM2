@@ -4,8 +4,10 @@
  */
 package spdvi.view;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import spdvi.controller.DataStore;
+import spdvi.model.Joc;
 import spdvi.model.Lloguer;
 
 /**
@@ -56,21 +58,18 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
         jTableLloguer.setModel(model);
     }
     
-    private void configurarEventSeleccioTaula() {
+    private void configurarEventSeleccioTaula() { // para este metodo tuve que ayudarme de ia, ya que se me complico y estaba tardando mucho
         jTableLloguer.getSelectionModel().addListSelectionListener(evt -> {
             if (!evt.getValueIsAdjusting() && jTableLloguer.getSelectedRow() != -1) {
-                // Obtenir el número de registre de la fila seleccionada
                 int modelRow = jTableLloguer.convertRowIndexToModel(jTableLloguer.getSelectedRow());
                 int numReg = Integer.parseInt(jTableLloguer.getModel().getValueAt(modelRow, 0).toString());
                 
-                // Cercar el lloguer corresponent al DataStore
                 Lloguer seleccionat = DataStore.lloguers.stream()
                         .filter(l -> l.getNumRegistre() == numReg)
                         .findFirst()
                         .orElse(null);
                 
                 if (seleccionat != null) {
-                    // Actualitzar els labels inferiors amb les dades[cite: 14]
                     jLabelValorJoc.setText(seleccionat.getJoc().getTitol());
                     jLabelValorUsuari.setText(seleccionat.getUsuari().getNom() + " " + seleccionat.getUsuari().getCognom1());
                     jLabelValorPlataforma.setText(seleccionat.getPlataforma());
@@ -223,10 +222,47 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
 
     private void jButtonMarcarRetornatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMarcarRetornatActionPerformed
         // TODO add your handling code here:
+        int filaSeleccionada = jTableLloguer.getSelectedRow();
+        
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "Has de seleccionar un lloguer de la taula.", "Avís", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int modelRow = jTableLloguer.convertRowIndexToModel(filaSeleccionada);
+        int numReg = Integer.parseInt(jTableLloguer.getModel().getValueAt(modelRow, 0).toString());
+        
+        Lloguer lloguer = DataStore.lloguers.stream().filter(l -> l.getNumRegistre() == numReg).findFirst().orElse(null);
+
+        if (lloguer == null) {
+            return;
+        }
+
+        if (lloguer.isRetornat()) {
+            JOptionPane.showMessageDialog(this, "Aquest lloguer ja ha estat retornat anteriorment.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        lloguer.setRetornat(true);
+
+        Joc joc = lloguer.getJoc();
+        switch (lloguer.getPlataforma()) {
+            case "PS5": joc.setStockPS5(joc.getStockPS5() + 1); break;
+            case "Xbox": joc.setStockXbox(joc.getStockXbox() + 1); break;
+            case "PC": joc.setStockPC(joc.getStockPC() + 1); break;
+            case "Switch 2": joc.setStockSwitch2(joc.getStockSwitch2() + 1); break;
+        }
+
+        JOptionPane.showMessageDialog(this, 
+                "Lloguer marcat com a retornat. S'ha restablert l'estoc de la plataforma.", 
+                "Operació completada", 
+                JOptionPane.INFORMATION_MESSAGE);
+        
+        this.dispose();
     }//GEN-LAST:event_jButtonMarcarRetornatActionPerformed
 
     private void jButtonLloguerTancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerTancarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonLloguerTancarActionPerformed
 
     /**
