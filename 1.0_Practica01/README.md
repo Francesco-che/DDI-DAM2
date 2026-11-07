@@ -21,7 +21,7 @@ Aplicación de escritorio desarrollada con **Java Swing** y **NetBeans** para ge
 3. Selecciona **File > Open Project** y busca la carpeta del proyecto.
 4. Asegúrate de que las dependencias (como *FlatLaf* en el archivo `pom.xml`) estén sincronizadas.
 5. Haz clic derecho sobre el proyecto y selecciona **Clean and Build** para compilar correctamente los recursos y la estructura de paquetes.
-6. Ejecuta la clase principal (**`MainScreen.java`**).
+6. Darle al boton de **Run Project** (en el archivo pom.xml esta definido MainScreen como archivo Main).
 
 ## 📂 Estructura del Proyecto
 
