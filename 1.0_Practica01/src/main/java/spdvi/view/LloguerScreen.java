@@ -13,9 +13,9 @@ import java.time.format.DateTimeFormatter;
  * @author frand
  */
 public class LloguerScreen extends javax.swing.JDialog {
-    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(LloguerScreen.class.getName());
-
+    
+    private ButtonGroup grupPlataformes;
     /**
      * Creates new form LloguerDialog
      */
@@ -60,6 +60,7 @@ public class LloguerScreen extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         jPanelDadesLloguer = new javax.swing.JPanel();
         jTextFieldNumRegistr = new javax.swing.JTextField();
         jLabelNumRegistre = new javax.swing.JLabel();
@@ -410,6 +411,7 @@ public class LloguerScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup;
     private javax.swing.JButton jButtonLloguerCancelar;
     private javax.swing.JButton jButtonLloguerConfirmar;
     private javax.swing.JComboBox<spdvi.model.Joc> jComboBoxJocElegit;
