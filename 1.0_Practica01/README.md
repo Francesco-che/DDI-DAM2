@@ -13,18 +13,6 @@ Aplicación de escritorio desarrollada con **Java Swing** y **NetBeans** para ge
 * **Integridad Referencial:** No se permite eliminar usuarios ni videojuegos si tienen alquileres activos asociados.
 * **Interfaz Moderna:** Implementación de la librería **FlatLaf** para ofrecer un aspecto visual profesional, limpio y actualizado (compatible con modos claros y oscuros).
 
-## 📊 Datos Iniciales Obligatorios
-
-Al iniciar la aplicación, el sistema carga automáticamente los datos de prueba para comprobar de inmediato todas las funcionalidades:
-
-1. **Usuarios iniciales:**
-   * Marc Rosselló
-   * Laura Martínez
-2. **Videojuegos iniciales:**
-   * **The Legend of Zelda:** Disponible para PS5 y Switch 2 (stock independiente).
-   * **Cyberpunk 2077:** Disponible para Xbox y PC (stock independiente).
-3. **Alquileres iniciales:**
-   * Dos alquileres de ejemplo (uno por usuario) que reflejan el consumo de unidades y el estado visual (uno fuera de plazo y otro devuelto).
 
 ## 🛠️ Instrucciones de Ejecución
 
