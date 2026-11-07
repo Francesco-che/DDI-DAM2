@@ -61,6 +61,7 @@ public class MainScreen extends javax.swing.JFrame {
                 model.addRow(fila);
             }
         jTableLloguers.setModel(model);
+        jTableLloguers.setRowHeight(50);
     }
     
     private void configurarRenderitzadorTaula() { // el color de las filas
