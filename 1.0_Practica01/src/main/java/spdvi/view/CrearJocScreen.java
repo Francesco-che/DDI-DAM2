@@ -247,6 +247,7 @@ public class CrearJocScreen extends javax.swing.JDialog {
 
     private void jButtonJocCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJocCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonJocCancelarActionPerformed
 
     /**
