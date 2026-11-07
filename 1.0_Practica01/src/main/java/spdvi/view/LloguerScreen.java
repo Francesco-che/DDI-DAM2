@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+import spdvi.model.Lloguer;
 /**
  *
  * @author frand
@@ -421,10 +423,61 @@ public class LloguerScreen extends javax.swing.JDialog {
 
     private void jButtonLloguerConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerConfirmarActionPerformed
         // TODO add your handling code here:
+        Usuari usuariSeleccionat = (Usuari) jComboBoxUsuari.getSelectedItem();
+        Joc jocSeleccionat = (Joc) jComboBoxJocElegit.getSelectedItem();
+
+        if (usuariSeleccionat == null || jocSeleccionat == null) {
+            JOptionPane.showMessageDialog(this, "Has de seleccionar un usuari i un joc.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Determinar quina plataforma s'ha marcat
+        String plataformaSeleccionada = null;
+        if (jRadioButtonPs5.isSelected()) plataformaSeleccionada = "PS5";
+        else if (jRadioButtonXbox.isSelected()) plataformaSeleccionada = "Xbox";
+        else if (jRadioButtonPC.isSelected()) plataformaSeleccionada = "PC";
+        else if (jRadioButtonSwitch2.isSelected()) plataformaSeleccionada = "Switch 2";
+
+        if (plataformaSeleccionada == null) {
+            JOptionPane.showMessageDialog(this, "Has de seleccionar una plataforma disponible.", "Error de validació", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // IMPACTE EN LLOGUER: Descomptar unitat[cite: 1]
+        switch (plataformaSeleccionada) {
+            case "PS5": jocSeleccionat.setStockPS5(jocSeleccionat.getStockPS5() - 1); break;
+            case "Xbox": jocSeleccionat.setStockXbox(jocSeleccionat.getStockXbox() - 1); break;
+            case "PC": jocSeleccionat.setStockPC(jocSeleccionat.getStockPC() - 1); break;
+            case "Switch 2": jocSeleccionat.setStockSwitch2(jocSeleccionat.getStockSwitch2() - 1); break;
+        }
+
+        // Crear el lloguer amb les dates de la interfície (parsejades o generades de nou)
+        LocalDate dataInici = LocalDate.now();
+        LocalDate dataTornada = dataInici.plusDays(7);
+
+        Lloguer nouLloguer = new Lloguer(
+                DataStore.comptadorLloguers,
+                usuariSeleccionat,
+                jocSeleccionat,
+                plataformaSeleccionada,
+                dataInici,
+                dataTornada,
+                false
+        );
+
+        // Afegir a la llista i augmentar comptador
+        DataStore.lloguers.add(nouLloguer);
+        DataStore.comptadorLloguers++;
+
+        JOptionPane.showMessageDialog(this, "Lloguer registrat correctament.", "Confirmació", JOptionPane.INFORMATION_MESSAGE);
+        
+        // Tancar la finestra
+        this.dispose();
     }//GEN-LAST:event_jButtonLloguerConfirmarActionPerformed
 
     private void jButtonLloguerCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLloguerCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonLloguerCancelarActionPerformed
 
     /**
