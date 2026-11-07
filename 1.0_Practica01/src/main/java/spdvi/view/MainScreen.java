@@ -18,8 +18,9 @@ import java.time.LocalDate;
  * @author frand
  */
 public class MainScreen extends javax.swing.JFrame {
-    private JTable taulaLloguers;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainScreen.class.getName());
+    private JTable taulaLloguers;
+
 
     /**
      * Creates new form MainScreen
@@ -29,15 +30,20 @@ public class MainScreen extends javax.swing.JFrame {
         DataStore.inicialitzarDades();
         carregarTaulaLloguers();
         configurarRenderitzadorTaula();
+//        configurarEventsMenu();
     }
     
     private void carregarTaulaLloguers() {
+        
             String[] columnes = {"Num. Registre", "Títol del Joc", "Usuari", "Plataforma", "Data d'inici", "Data de Tornada", "Gènere"};
             DefaultTableModel model = new DefaultTableModel(columnes, 0) {
+                
                 @Override
-                public boolean isCellEditable(int row, int column) { return false; } // La taula no es pot editar directament
+                public boolean isCellEditable(int row, int column) { 
+                    return false; 
+                } // la tabla no se puede editar directamente
             };
-    
+            // esto es para ordenarl ode forma descendente
             for (int i = DataStore.lloguers.size() - 1; i >= 0; i--) {
                 Lloguer ll = DataStore.lloguers.get(i);
                 Object[] fila = {
@@ -54,31 +60,33 @@ public class MainScreen extends javax.swing.JFrame {
         jTableLloguers.setModel(model);
     }
     
-    private void configurarRenderitzadorTaula() {
-    jTableLloguers.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
-        @Override
-        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    private void configurarRenderitzadorTaula() { // el color de las filas
+        jTableLloguers.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
             
-            // Obtenir el número de registre de la fila seleccionada (primera columna)
-            int modelRow = table.convertRowIndexToModel(row);
-            int numReg = Integer.parseInt(table.getModel().getValueAt(modelRow, 0).toString());
-            
-            // Cercar el lloguer corresponent
-            Lloguer lloguer = DataStore.lloguers.stream().filter(l -> l.getNumRegistre() == numReg).findFirst().orElse(null);
-            
-            if (!isSelected && lloguer != null) {
-                if (lloguer.isRetornat()) {
-                    c.setBackground(new Color(200, 255, 200)); // Verd clar per lloguers retornats[cite: 1, 2]
-                } else if (LocalDate.now().isAfter(lloguer.getDataPrevista())) {
-                    c.setBackground(new Color(255, 200, 200)); // Vermell per fora de termini[cite: 1, 2]
-                } else {
-                    c.setBackground(Color.WHITE); // Lloguers actius dins de termini
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+
+                
+                int modelRow = table.convertRowIndexToModel(row);
+                int numReg = Integer.parseInt(table.getModel().getValueAt(modelRow, 0).toString());
+
+                
+                Lloguer lloguer = DataStore.lloguers.stream().filter(l -> l.getNumRegistre() == numReg).findFirst().orElse(null);
+
+                if (!isSelected && lloguer != null) {
+                    if (lloguer.isRetornat()) {
+                        c.setBackground(new Color(200, 255, 200));
+                    } else if (LocalDate.now().isAfter(lloguer.getDataPrevista())) {
+                        c.setBackground(new Color(255, 200, 200));
+                    } else {
+                        c.setBackground(Color.WHITE);
+                    }
                 }
+                return c;
             }
-            return c;
-        }
-        });
+            }
+        );
     }
     /**
      * This method is called from within the constructor to initialize the form.
