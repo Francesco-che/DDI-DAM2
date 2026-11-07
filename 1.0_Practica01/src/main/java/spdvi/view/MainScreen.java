@@ -332,8 +332,16 @@ public class MainScreen extends javax.swing.JFrame {
         }
         //</editor-fold>
         try {
-            // Tema clar:
+            // temas:
+            // tema caro
             javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatLightLaf());
+            
+            // tema mac claro
+//            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.themes.FlatMacLightLaf());
+            // tema mac oscuro
+//            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.themes.FlatMacDarkLaf());
+            
+
             
             // Si prefereixes el tema fosc, pots fer servir aquest:
             // javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatDarkLaf());
@@ -341,8 +349,7 @@ public class MainScreen extends javax.swing.JFrame {
             System.err.println("No s'ha pogut inicialitzar FlatLaf");
         }
 
-        // 2. Crear i mostrar la finestra principal
-        java.awt.EventQueue.invokeLater(() -> new MainScreen().setVisible(true));
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new MainScreen().setVisible(true));
     }

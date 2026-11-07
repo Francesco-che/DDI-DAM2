@@ -50,7 +50,7 @@ public class Usuari {
     }
     
     public String getCognoms() {
-        return cognom1 + cognom2;
+        return cognom1 +" "+ cognom2;
     }
 
     public String getDni() {
