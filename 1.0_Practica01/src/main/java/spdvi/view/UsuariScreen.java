@@ -4,6 +4,9 @@
  */
 package spdvi.view;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author frand
@@ -18,8 +21,25 @@ public class UsuariScreen extends javax.swing.JDialog {
     public UsuariScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        inicialitzarDadesFormulari();
     }
-
+    
+    
+    private void inicialitzarDadesFormulari() {
+        // la fecha es automatica y el usuario no puede cambiarla
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String dataAvui = LocalDate.now().format(formatter);
+        
+        jTextFieldDataRegistre.setText(dataAvui);
+        jTextFieldDataRegistre.setEditable(false);
+        
+        // Buidar els camps per defecte (per netejar el que hagis posat en el dissenyador)
+        jTextFieldNom.setText("");
+        jTextFieldLlinatge1.setText("");
+        jTextFieldLlinatge2.setText("");
+        jTextFieldDNI.setText("");
+        jTextFieldTelefon.setText("");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
