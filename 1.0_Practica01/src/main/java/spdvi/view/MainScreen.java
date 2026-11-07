@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import spdvi.model.Joc;
 import spdvi.model.Usuari;
 
+
 /**
  *
  * @author frand
@@ -30,18 +31,9 @@ public class MainScreen extends javax.swing.JFrame {
      */
     public MainScreen() {
         initComponents();
-        
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/spdvi/resources/iconMain2.png")).getImage());
         setTitle("Gestió de Lloguer de Videojocs");
-        try {
-            java.net.URL imgURL = getClass().getResource("/spdvi/resources/iconoMain.png"); 
-            if (imgURL != null) {
-                setIconImage(new javax.swing.ImageIcon(imgURL).getImage());
-            } else {
-                System.err.println("No s'ha trobat la imatge de l'icono a la ruta especificada.");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
         
         DataStore.inicialitzarDades();
         carregarTaulaLloguers();

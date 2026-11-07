@@ -24,7 +24,10 @@ public class TornarLloguerScreen extends javax.swing.JDialog {
     public TornarLloguerScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/spdvi/resources/iconoLloguer.png")).getImage());
         setTitle("Tornar lloguer");
+        
         netejarLabels();
         carregarTaulaTornarLloguers();
         configurarEventSeleccioTaula();

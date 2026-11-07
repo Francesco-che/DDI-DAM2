@@ -24,7 +24,10 @@ public class CrearJocScreen extends javax.swing.JDialog {
     public CrearJocScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/spdvi/resources/iconoJoc.png")).getImage());
         setTitle("Crear joc");
+        
         inicialitzarDadesFormulari();
         configurarEventsCheckboxes();
     }

@@ -24,6 +24,7 @@ public class UsuariScreen extends javax.swing.JDialog {
     public UsuariScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/spdvi/resources/iconoAñadirUsuario.png")).getImage());
         setTitle("Crear usuari");
         inicialitzarDadesFormulari();
     }
