@@ -24,13 +24,14 @@ import spdvi.model.Usuari;
 public class MainScreen extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainScreen.class.getName());
     private JTable taulaLloguers;
-    
+    private java.util.ResourceBundle bundle;
     
     /**
      * Creates new form MainScreen
      */
     public MainScreen() {
         initComponents();
+        canviarIdioma("ca");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/spdvi/resources/iconMain2.png")).getImage());
         setTitle("Gestió de Lloguer de Videojocs");
         
@@ -177,7 +178,22 @@ public class MainScreen extends javax.swing.JFrame {
         }
     }
 
+    private void canviarIdioma(String codiIdioma) {
+        java.util.Locale locale = new java.util.Locale(codiIdioma);
+        bundle = java.util.ResourceBundle.getBundle("spdvi/resources/Bundle", locale);
+        actualitzarTextosPantalla();
+    }
 
+    private void actualitzarTextosPantalla() {
+        if (bundle == null) return;
+        
+        setTitle(bundle.getString("MainScreen.title"));
+        
+        menuLloguer.setText(bundle.getString("MainScreen.menuLloguer"));
+        menuUsuari.setText(bundle.getString("MainScreen.menuUsuari"));
+        menuJoc.setText(bundle.getString("MainScreen.menuJoc"));
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -199,6 +215,10 @@ public class MainScreen extends javax.swing.JFrame {
         menuJoc = new javax.swing.JMenu();
         jMenuItemCrearJoc = new javax.swing.JMenuItem();
         jMenuItemBorrarJoc = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -252,6 +272,22 @@ public class MainScreen extends javax.swing.JFrame {
         menuJoc.add(jMenuItemBorrarJoc);
 
         jMenuBar1.add(menuJoc);
+
+        jMenu1.setText("Idioma");
+
+        jMenuItem1.setText("Català");
+        jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Español");
+        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("English");
+        jMenuItem3.addActionListener(this::jMenuItem3ActionPerformed);
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -310,6 +346,21 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         borrarJoc();
     }//GEN-LAST:event_jMenuItemBorrarJocActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        canviarIdioma("ca");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        canviarIdioma("es");
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        canviarIdioma("en");
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -355,7 +406,11 @@ public class MainScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItemBorrarJoc;
     private javax.swing.JMenuItem jMenuItemBorrarUsuari;
     private javax.swing.JMenuItem jMenuItemCrearJoc;
