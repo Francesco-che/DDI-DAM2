@@ -310,7 +310,7 @@ public class MainScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         borrarJoc();
     }//GEN-LAST:event_jMenuItemBorrarJocActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
