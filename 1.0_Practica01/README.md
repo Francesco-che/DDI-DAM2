@@ -12,6 +12,7 @@ Aplicación de escritorio desarrollada con **Java Swing** y **NetBeans** para ge
 * **Validaciones con `ValidationAPI`:** Los nombres de usuario se validan estrictamente para garantizar que comiencen con letra mayúscula.
 * **Integridad Referencial:** No se permite eliminar usuarios ni videojuegos si tienen alquileres activos asociados.
 * **Interfaz Moderna:** Implementación de la librería **FlatLaf** para ofrecer un aspecto visual profesional, limpio y actualizado (compatible con modos claros y oscuros).
+* En caso de querer desactivar la interfaz FlatLaf, hay que comentar la liena 337 de MainScreen.java
 
 
 ## 🛠️ Instrucciones de Ejecución
