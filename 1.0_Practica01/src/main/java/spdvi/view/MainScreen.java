@@ -180,6 +180,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void canviarIdioma(String codiIdioma) {
         java.util.Locale locale = new java.util.Locale(codiIdioma);
+        java.util.Locale.setDefault(locale);
         bundle = java.util.ResourceBundle.getBundle("spdvi/resources/Bundle", locale);
         actualitzarTextosPantalla();
     }
@@ -187,11 +188,12 @@ public class MainScreen extends javax.swing.JFrame {
     private void actualitzarTextosPantalla() {
         if (bundle == null) return;
         
-        setTitle(bundle.getString("MainScreen.title"));
+        setTitle(bundle.getString("Main.title"));
         
-        menuLloguer.setText(bundle.getString("MainScreen.menuLloguer"));
-        menuUsuari.setText(bundle.getString("MainScreen.menuUsuari"));
-        menuJoc.setText(bundle.getString("MainScreen.menuJoc"));
+        // Actualitzar els menús principals
+        menuLloguer.setText(bundle.getString("Main.menu.lloguer"));
+        menuUsuari.setText(bundle.getString("Main.menu.usuari"));
+        menuJoc.setText(bundle.getString("Main.menu.joc"));
         
     }
     /**
