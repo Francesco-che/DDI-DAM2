@@ -169,6 +169,7 @@ public class UsuariScreen extends javax.swing.JDialog {
 
     private void jButtonUsuariConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariConfirmarActionPerformed
         // TODO add your handling code here:
+        try{
         String nom = jTextFieldNom.getText().trim();
         String llinatge1 = jTextFieldLlinatge1.getText().trim();
         String llinatge2 = jTextFieldLlinatge2.getText().trim();
@@ -188,13 +189,60 @@ public class UsuariScreen extends javax.swing.JDialog {
                 JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
+        boolean telefonValid = true;
+            if (telefon.length() < 9 || telefon.length() > 15) {
+                telefonValid = false;
+            } else {
+                for (int i = 0; i < telefon.length(); i++) {
+                    if (!Character.isDigit(telefon.charAt(i))) {
+                        telefonValid = false;
+                        break;
+                    }
+                }
+            }
+            
+        if (!telefonValid) {
+                JOptionPane.showMessageDialog(this, "El telèfon només pot contenir números (entre 9 i 15 dígits).", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        
+        boolean dniValid = true;
+            if (dni.length() != 9) {
+                dniValid = false;
+            } else {
+                for (int i = 0; i < 8; i++) {
+                    if (!Character.isDigit(dni.charAt(i))) {
+                        dniValid = false;
+                        break;
+                    }
+                }
+                if (dniValid && !Character.isLetter(dni.charAt(8))) {
+                    dniValid = false;
+                }
+            }
+            if (!dniValid) {
+                JOptionPane.showMessageDialog(this, "El format del DNI no és correcte (8 números i 1 lletra).", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // 5. Prevenció de duplicats
+            boolean dniDuplicat = DataStore.usuaris.stream().anyMatch(u -> u.getDni().equalsIgnoreCase(dni));
+            if (dniDuplicat) {
+                JOptionPane.showMessageDialog(this, "Ja existeix un usuari registrat amb aquest DNI.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
         Usuari nouUsuari = new Usuari(nom, llinatge1, llinatge2, dni, telefon, LocalDate.now());
         
         DataStore.usuaris.add(nouUsuari);
 
         JOptionPane.showMessageDialog(this, "Usuari creat correctament.", "Confirmació", JOptionPane.INFORMATION_MESSAGE);
         this.dispose();
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error inesperat al crear l'usuari", e);
+            JOptionPane.showMessageDialog(this, "S'ha produït un error inesperat en desar l'usuari. Si us plau, torna-ho a intentar.", "Error del sistema", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButtonUsuariConfirmarActionPerformed
 
     private void jButtonUsuariCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariCancelarActionPerformed
