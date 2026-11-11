@@ -190,7 +190,6 @@ public class MainScreen extends javax.swing.JFrame {
         
         setTitle(bundle.getString("Main.title"));
         
-        // Actualitzar els menús principals
         menuLloguer.setText(bundle.getString("Main.menu.lloguer"));
         menuUsuari.setText(bundle.getString("Main.menu.usuari"));
         menuJoc.setText(bundle.getString("Main.menu.joc"));
